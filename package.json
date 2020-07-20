@@ -1,10 +1,14 @@
 {
   "name": "nodejs",
   "version": "1.0.0",
+   "engines": {
+    "node": "12.16.0"
+  },
+  "private": true,
   "description": "created by shreya shah",
   "main": "index.js",
   "scripts": {
-   "start": "node index.js"
+    "start": "node index.js"
   },
   "author": "shreya shah",
   "license": "ISC",
