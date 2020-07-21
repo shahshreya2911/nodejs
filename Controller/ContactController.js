@@ -10,11 +10,11 @@ exports.index = function (req, res) {
                 message: err,
             });
         }
-        res.json({
+        res.json(
             status: "success",
             message: "Contacts retrieved successfully",
             data: contacts
-        });
+        );
     });
 };
 // Handle create contact actions
