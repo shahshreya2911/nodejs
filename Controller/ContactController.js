@@ -2,6 +2,9 @@
 // Import contact model
 Contact = require('../Model/ContactModel');
 // Handle index actions
+const pdfkit = require('pdfkit');
+const fs = require('fs');
+  const pdfdocument = new pdfkit;
 exports.index = function (req, res) {
     Contact.get(function (err, contacts) {
         if (err) {
@@ -77,4 +80,23 @@ res.json({
             message: 'Contact deleted'
         });
     });
+};
+exports.pdf = function (req, res) {
+ 
+    pdfdocument.pipe(fs.createWriteStream('output12.pdf'));
+
+    pdfdocument.image('shreya.jpg', {
+       fit: [250, 300],
+       align: 'center',
+       valign: 'center'
+    });
+
+    pdfdocument.text('Some text with an embedded font!', 100, 100);
+    pdfdocument.end() 
+    res.json({
+        status: "success",
+        message: "pdf added successfully",
+          
+    });
+   
 };
