@@ -83,15 +83,15 @@ res.json({
 };
 exports.pdf = function (req, res) {
  
-    pdfdocument.pipe(fs.createWriteStream('output12.pdf'));
+    pdfdocument.pipe(fs.createWriteStream('output.pdf'));
 
-    pdfdocument.image('shreya.jpg', {
+    pdfdocument.image('node.png', {
        fit: [250, 300],
        align: 'center',
        valign: 'center'
     });
 
-    pdfdocument.text('Some text with an embedded font!', 100, 100);
+    pdfdocument.text('Node PDF Generate!', 100, 100);
     pdfdocument.end() 
     res.json({
         status: "success",
