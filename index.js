@@ -13,12 +13,6 @@ let apiRoutes = require("./api-routes");
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
-app.use(function(req, res) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-});
-
 app.use(bodyParser.json());
 // Connect to Mongoose and set connection variable
 
