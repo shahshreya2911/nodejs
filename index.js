@@ -13,6 +13,12 @@ let apiRoutes = require("./api-routes");
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
+app.use(function(req, res) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+});
+
 app.use(bodyParser.json());
 // Connect to Mongoose and set connection variable
 
@@ -25,7 +31,7 @@ else
     console.log("Db connected successfully")
 
 // Setup server port
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 4000;
 
 // Send message for default URL
 app.get('/', (req, res) => res.send('Hello World with Express'));
